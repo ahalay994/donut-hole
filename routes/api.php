@@ -21,7 +21,7 @@ use \App\Http\Controllers\Api\MemberController;
 //});
 
 Route::get('/', function () {
-    return response()->json('API.');
+    return response()->json('API');
 });
 
 Route::get('/department', [\App\Http\Controllers\Api\DepartmentController::class, 'get']);

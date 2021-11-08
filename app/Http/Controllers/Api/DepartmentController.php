@@ -25,7 +25,7 @@ class DepartmentController extends Controller
             ->groupBy('departments.id')
             ->paginate(10);
 
-        return response()->json([DepartmentsResource::collection($data)]);
+        return response()->json(($data));
     }
 
     /**

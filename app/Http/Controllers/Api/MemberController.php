@@ -23,7 +23,7 @@ class MemberController extends Controller
             ->select(DB::raw('concat(name, " ", surname, " ", patronymic) as full_name, sex, salary'))
             ->paginate(10);
 
-        return response()->json([MemberResource::collection($data)]);
+        return response()->json($data);
     }
 
     /**
