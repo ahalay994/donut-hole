@@ -24,16 +24,12 @@ Route::get('/', function () {
     return response()->json('API.');
 });
 
-Route::prefix('/department')->name('api.department.')->group(function () {
-    Route::get('/', [DepartmentController::class, 'get'])->name('get');
-    Route::post('/create', [DepartmentController::class, 'store'])->name('create');
-    Route::put('/{id}/update', [DepartmentController::class, 'update'])->name('update');
-    Route::delete('/{id}/delete', [DepartmentController::class, 'delete'])->name('delete');
-});
+Route::get('/department', [\App\Http\Controllers\Api\DepartmentController::class, 'get']);
+Route::post('/department/create', [\App\Http\Controllers\Api\DepartmentController::class, 'store']);
+Route::put('/department/{id}/update', [\App\Http\Controllers\Api\DepartmentController::class, 'update']);
+Route::delete('/department/{id}/delete', [\App\Http\Controllers\Api\DepartmentController::class, 'delete']);
 
-Route::prefix('/member')->name('api.member.')->group(function () {
-    Route::get('/', [MemberController::class, 'get'])->name('get');
-    Route::post('/create', [MemberController::class, 'store'])->name('create');
-    Route::put('/{id}/update', [MemberController::class, 'update'])->name('update');
-    Route::delete('/{id}/delete', [MemberController::class, 'delete'])->name('delete');
-});
+Route::get('/member', [\App\Http\Controllers\Api\MemberController::class, 'get']);
+Route::post('/member/create', [\App\Http\Controllers\Api\MemberController::class, 'store']);
+Route::put('/member/{id}/update', [\App\Http\Controllers\Api\MemberController::class, 'update']);
+Route::delete('/member/{id}/delete', [\App\Http\Controllers\Api\MemberController::class, 'delete']);
